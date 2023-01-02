@@ -6,12 +6,15 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 
 import time
+import math
 
 driver = webdriver.Chrome()
 
 def perf(url, n, b): #첫 번째 선택지만 선택
     driver.get(url)
-
+    start = time.time()
+    math.factorial(100000)
+    
     time.sleep(1)
 
     for i in range(n):
@@ -29,8 +32,9 @@ def perf(url, n, b): #첫 번째 선택지만 선택
         # time.sleep(1)
 
     print('{0}all_done{0}'.format('@'*10))
+    end = time.time()
+    print(f"{end - start:.5f} sec")
 
-
-perf('https://naver.me/FTkLTYx3', 30, 10) # 'url', 횟수, 문제개수
+perf('https://naver.me/FTkLTYx3', 100, 10) # 'url', 횟수, 문제개수
 
 # 2, 3은 화살표 아래키 입력 램덤
