@@ -7,6 +7,7 @@ from selenium.webdriver.common.by import By
 
 import time
 import math
+import random
 
 driver = webdriver.Chrome()
 
@@ -27,14 +28,20 @@ def perf(url, n, b): #첫 번째 선택지만 선택
         driver.find_element(By.TAG_NAME, 'body').send_keys(Keys.TAB)
         driver.find_element(By.TAG_NAME, 'body').send_keys(Keys.TAB)
         for i in range(b+1): # n
-            driver.find_element(By.TAG_NAME, 'body').send_keys(Keys.TAB,Keys.ENTER)
-        print(j+1)
-        # time.sleep(1)
+            r = random.choices(range(1, 4), weights=[0.85, 0.1, 0.05])
+            if (r[0] == 1):
+                driver.find_element(By.TAG_NAME, 'body').send_keys(Keys.TAB,Keys.ENTER)
+            elif (r[0] == 2):
+                driver.find_element(By.TAG_NAME, 'body').send_keys(Keys.TAB,Keys.ARROW_DOWN,Keys.ENTER)
+            else:
+                driver.find_element(By.TAG_NAME, 'body').send_keys(Keys.TAB,Keys.ARROW_DOWN,Keys.ARROW_DOWN,Keys.ENTER)
+        print("count", j+1)
 
-    print('{0}all_done{0}'.format('@'*10))
+    print('{0}{1} all_done{0}'.format('@'*10, n))
     end = time.time()
     print(f"{end - start:.5f} sec")
 
 perf('https://naver.me/FTkLTYx3', 100, 10) # 'url', 횟수, 문제개수
 
 # 2, 3은 화살표 아래키 입력 램덤
+
