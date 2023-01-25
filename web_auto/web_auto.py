@@ -10,6 +10,8 @@ import math
 import random
 
 driver = webdriver.Chrome()
+#exe로 만든다고 하다면 크롬파일은 어디서 
+#가죠와야하는 거지?
 
 def perf(url, n, b): #첫 번째 선택지만 선택
     driver.get(url)
@@ -41,7 +43,7 @@ def perf(url, n, b): #첫 번째 선택지만 선택
     end = time.time()
     print(f"{end - start:.5f} sec")
 
-perf('https://naver.me/FTkLTYx3', 100, 10) # 'url', 횟수, 문제개수
+# perf('https://naver.me/FTkLTYx3', 100, 10) # 'url', 횟수, 문제개수
 
 # 2, 3은 화살표 아래키 입력 램덤
 
