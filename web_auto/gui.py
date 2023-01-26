@@ -1,4 +1,5 @@
 from tkinter import *
+from tkinter.messagebox import *
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
@@ -11,6 +12,9 @@ driver = webdriver.Chrome()
 
 tk = Tk()
 tk.title('네이버 폼 오토')
+
+tk.geometry("500x500")
+tk.resizable(False, False)
 ###################################################
 def perf(): #첫 번째 선택지만 선택
     url = entry1.get()
@@ -44,6 +48,7 @@ def perf(): #첫 번째 선택지만 선택
     print('{0}{1} all_done{0}'.format('@'*10, n))
     end = time.time()
     print(f"{end - start:.5f} sec")
+    showerror("완료", f"{end - start:.5f} sec, 완료!!")
 ##############################################
 
 label1 = Label(tk,text='url').grid(row=0, column=0)
@@ -62,6 +67,7 @@ entry3.grid(row=2,column=1)
 
 btn1 = Button(tk,text='실행하기',bg='black',fg='white',command=perf).grid(row=3,column=0)
 
+
 tk.mainloop()
  
-#https://naver.me/FYaXpH3V
+#https://naver.me/5grkWhyD
